@@ -1,6 +1,6 @@
 import { AnimeFillerListResponse, isTVShowSeasonPage } from "./utils";
 
-isTVShowSeasonPage.then((data) => {
+isTVShowSeasonPage.then(() => {
   const cellItems = document.querySelectorAll<HTMLDivElement>(
     "div[data-qa-id='cellItem']",
   );
