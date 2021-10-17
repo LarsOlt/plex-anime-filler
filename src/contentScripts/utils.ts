@@ -1,12 +1,18 @@
 /** Will resolve if the condition is truthy */
 const isTargetPage = (condition: () => unknown) =>
   new Promise((resolve, reject) => {
+    const start = Date.now();
     const interval = setInterval(() => {
       const res = condition();
 
       if (res) {
         clearInterval(interval);
         resolve(res);
+
+        // stop interval after 5 seconds
+      } else if ((Date.now() - start) / 1000 >= 5) {
+        clearInterval(interval);
+        reject();
       }
     }, 100);
   });
