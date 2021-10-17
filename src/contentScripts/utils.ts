@@ -3,11 +3,11 @@ const isTargetPage = (condition: () => unknown) =>
   new Promise((resolve, reject) => {
     const start = Date.now();
     const interval = setInterval(() => {
-      const res = condition();
+      const conditionResponse = condition();
 
-      if (res) {
+      if (conditionResponse) {
         clearInterval(interval);
-        resolve(res);
+        resolve(conditionResponse);
 
         // stop interval after 5 seconds
       } else if ((Date.now() - start) / 1000 >= 5) {
@@ -61,11 +61,11 @@ export type AnimeFillerListResponse = {
 
 /** Can only be called from the background scripts because of CORS */
 export const getAnimeFillerList = async () => {
-  const res = await fetch(
+  const conditionResponse = await fetch(
     "https://www.animefillerlist.com/shows/naruto-shippuden",
   );
 
-  const data = await res.text();
+  const data = await conditionResponse.text();
 
   const parser = new DOMParser();
   const doc = parser.parseFromString(data, "text/html");
