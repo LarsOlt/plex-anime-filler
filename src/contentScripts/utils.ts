@@ -10,7 +10,7 @@ const isTargetPage = (condition: () => unknown) =>
         resolve(conditionResponse);
 
         // stop interval after 5 seconds
-      } else if ((Date.now() - start) / 1000 >= 5) {
+      } else if ((Date.now() - start) / 1000 >= 10) {
         clearInterval(interval);
         reject();
       }
