@@ -51,22 +51,24 @@ const addFillerInfoToCell = (params: {
 }) => {
   const { cell, fillerInfo } = params;
 
-  (cell as HTMLDivElement).innerHTML += `
+  (cell as HTMLDivElement).insertAdjacentHTML(
+    "beforeend",
+    `
             <div style="
                 position: absolute;
-                top: 1em;
-                right: 1em;
+                bottom: 0;
+                right: 0;
                 color: white;
                 text-transform: uppercase;
-                padding: .5em;
+                padding: 1px 5px;
                 background-color: ${
                   fillerInfo.type === "Filler" ? "red" : "green"
                 };
                 border-radius:5px;
-                box-shadow: 0 0 3px gray;
                 "
             >${fillerInfo.type}</div>
-        `;
+        `,
+  );
 };
 
 const populateCells = (cells: NodeList) => {
