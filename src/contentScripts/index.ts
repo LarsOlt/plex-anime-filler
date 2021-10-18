@@ -35,12 +35,12 @@ isTVShowSeasonPage.then(() => {
 const getCellData = (cell: Node) => {
   const title = (cell as HTMLDivElement).querySelector(
     "a[data-qa-id='metadataTitleLink']",
-  )?.textContent;
+  )?.textContent as string;
 
   return {
     title,
     fillerInfo: animeFillerList?.find((info) => {
-      return stringSimilarity.compareTwoStrings(info.title, title!) > 0.95;
+      return stringSimilarity.compareTwoStrings(info.title, title) > 0.95;
     }),
   };
 };
