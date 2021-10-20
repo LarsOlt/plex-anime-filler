@@ -16,7 +16,8 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*/web/*"
+                "*://*/web/*",
+                "*://app.plex.tv/*"
             ],
             "js": [
                 "js/contentScript.js"
