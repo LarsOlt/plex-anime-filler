@@ -6,4 +6,4 @@ The following shows are currently supported:
 
 - [Naruto Shippuden](https://www.animefillerlist.com/shows/naruto-shippuden)
 
-![This is an image](assets/plex_screenshot.png)
+![Plex Screenshot](assets/plex_screenshot.png)
