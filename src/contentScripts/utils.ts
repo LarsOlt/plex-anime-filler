@@ -21,7 +21,7 @@ export const isTVShowPage = new Promise<{ title: string }>(
   (resolve, reject) => {
     isTargetPage(
       () =>
-        document.querySelector("div[data-qa-id='hubTitle']")?.textContent ===
+        document.querySelector("div[data-testid='hubTitle']")?.textContent ===
         "Seasons",
     ).then(() => {
       resolve({

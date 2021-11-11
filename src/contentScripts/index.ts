@@ -5,7 +5,7 @@ let animeFillerList: AnimeFillerListResponse | null = null;
 
 isTVShowSeasonPage.then(() => {
   const cellItems = document.querySelectorAll<HTMLDivElement>(
-    "div[data-qa-id='cellItem']",
+    "div[data-testid='cellItem']",
   );
 
   const cellItemsWrapper = cellItems[0].parentNode as Node;
@@ -34,7 +34,7 @@ isTVShowSeasonPage.then(() => {
 
 const getCellData = (cell: Node) => {
   const title = (cell as HTMLDivElement).querySelector(
-    "a[data-qa-id='metadataTitleLink']",
+    "a[data-testid='metadataTitleLink']",
   )?.textContent as string;
 
   return {
