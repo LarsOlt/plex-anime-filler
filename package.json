@@ -5,9 +5,7 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --config webpack.prod.js",
-        "dev": "webpack -w --config webpack.dev.js",
-        "lint": "eslint --fix -c ./.eslintrc.js \"src/**/*.ts*\"",
-        "prettify": "prettier --write \"src/**/*.ts*\""
+        "dev": "webpack -w --config webpack.dev.js"
     },
     "author": "Lars Öltjenbruns",
     "license": "MIT",
