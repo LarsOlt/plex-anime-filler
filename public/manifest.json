@@ -3,6 +3,9 @@
     "name": "Plex Animme Filler",
     "description": "Shows animefillerlist.com information in Plex!",
     "version": "1.0.0",
+    "icons": {
+        "128": "icon-128.png"
+    },
     "background": {
         "scripts": [
             "background.js"
