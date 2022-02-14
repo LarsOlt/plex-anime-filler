@@ -70,16 +70,18 @@ export const getAnimeFillerList = async () => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(data, "text/html");
 
-  const parsed: AnimeFillerListResponse = [
-    ...(doc.querySelectorAll(".EpisodeList tbody tr") as any),
-  ]
-    .map((row) => [...row.querySelectorAll("td")])
+  const rows = Array.from(
+    doc.querySelectorAll<HTMLTableRowElement>(".EpisodeList tbody tr"),
+  );
+
+  const parsed: AnimeFillerListResponse = rows
+    .map((row) => Array.from(row.querySelectorAll("td")))
     .map((row) => {
       return {
-        number: row[0].textContent,
-        title: row[1].textContent,
-        type: row[2].textContent,
-        airdate: row[3].textContent,
+        number: row[0].textContent!,
+        title: row[1].textContent!,
+        type: row[2].textContent!,
+        airdate: row[3].textContent!,
       };
     });
 
