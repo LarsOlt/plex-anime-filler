@@ -1,5 +1,9 @@
+import "@webcomponents/webcomponentsjs";
+
 import { AnimeFillerListResponse, isTVShowSeasonPage } from "./utils";
 import stringSimilarity from "string-similarity";
+import "./components";
+import { EpisodeTag } from "./components";
 
 let animeFillerList: AnimeFillerListResponse | null = null;
 
@@ -51,24 +55,9 @@ const addFillerInfoToCell = (params: {
 }) => {
   const { cell, fillerInfo } = params;
 
-  (cell as HTMLDivElement).insertAdjacentHTML(
-    "beforeend",
-    `
-            <div style="
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                color: white;
-                text-transform: uppercase;
-                padding: 1px 5px;
-                background-color: ${
-                  fillerInfo.type === "Filler" ? "red" : "green"
-                };
-                border-radius:5px;
-                "
-            >${fillerInfo.type}</div>
-        `,
-  );
+  const EpisodeTagEle = new EpisodeTag({ fillerInfo });
+
+  (cell as HTMLDivElement).insertAdjacentElement("beforeend", EpisodeTagEle);
 };
 
 const populateCells = (cells: NodeList) => {
