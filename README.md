@@ -1,4 +1,4 @@
-# Anime Filler Extension
+# Anime Filler Web Extension
 
 ## Shows [animefillerlist](https://www.animefillerlist.com) information in [Plex](https://www.plex.tv/)
 
